@@ -1,0 +1,11 @@
+export enum TILE_STATUS {
+    WHITE = 'WHITE',
+    BLACK = 'BLACK',
+    AVAILABLE = 'AVAILABLE',
+}
+
+export enum PLAYERACTIONTYPE{
+    SELECT_BLACK = 'SELECT_BLACK',
+    SELECT_WHITE = 'SELECT_WHITE'
+   
+}

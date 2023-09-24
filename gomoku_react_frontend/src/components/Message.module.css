@@ -1,0 +1,13 @@
+.message {
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    color: white;
+    font-weight: 700;
+    border-radius: 1rem;
+  }
+  
+  
+  .error {
+    background-color: #f44336;
+  }

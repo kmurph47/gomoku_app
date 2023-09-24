@@ -1,0 +1,48 @@
+.gameSpace {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 1000px;
+    margin: 0 auto;
+    perspective: 500px;
+    gap: 1rem;
+    
+  }
+  .row{
+    
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #cca2a2;
+    
+  }
+
+  .buttonContainer{
+
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    display: flex;
+    column-gap: 3rem;
+
+
+  }
+
+ 
+
+  .tile {
+    display: grid;
+    gap: 0.1rem;
+    text-align: center;
+  }
+  
+  .score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    margin: 1rem 0;
+    font-size: 2rem;
+    color: rgb(96, 96, 96);
+    font-weight: 500;
+  }
