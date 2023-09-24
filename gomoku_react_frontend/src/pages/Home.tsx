@@ -77,7 +77,6 @@ export default function Home() {
           var y: number = +inbs;
           
 
-          console.log(typeof y)
 
           //window.alert(filteredGames.length)
 

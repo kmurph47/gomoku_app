@@ -42,14 +42,12 @@ export default function GameHistory() {
 
     //const gameID = 1
 
-    console.log(gameID)
 
 
     const fetchGames = useCallback(async () => {
       try{
         const getOne = await get<Game>(`/api/games/${user?._id}/${gameID}`)
         //setResult(getOne?.result)
-        console.log("Boardsize: "+getOne?.boardsize)
         setBoardSize(getOne?.boardsize)
         setWhiteMoves(getOne?.whiteMoves)
         setBlackMoves(getOne?.blackMoves)
@@ -79,12 +77,10 @@ export default function GameHistory() {
 
     //let boardSize = bs[gameID]
     let boardSize = boardS
-    console.log(boardSize)
 
     //console.log(blackMoveGames["Game:2"])
 
-    console.log("Black Moves",blackMoveGames)
-    console.log("White Moves",whiteMoveGames)
+  
 
 
     //console.log(gameID)

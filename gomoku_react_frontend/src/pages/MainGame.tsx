@@ -51,17 +51,13 @@ export default function MainGame() {
   const [ filteredGames, setFilteredGames ] = useState<Game[]>()
 
   const [ boardS, setBoardSize ] = useState<any>(0)
-  let [ whiteMoves, setWhiteMoves ] = useState<any[]>([])
-  let [ blackMoves, setBlackMoves ] = useState<any[]>([])
-  //const [ gameId, setGameId ] = useState<number>()
-  //const [ res, setResponse ] = useState<string>("Current Player: Black")
+
 
 
   const navigate = useNavigate()
 
   const { paramID } = useParams()
 
-  console.log("ID:"+Number(paramID))
 
 
 
@@ -71,11 +67,8 @@ export default function MainGame() {
     try{
       const getOne = await get<Game>(`/api/games/${user?._id}/${paramID}`)
       //setResult(getOne?.result)
-      console.log("Boardsize: "+getOne?.boardsize)
       setBoardSize(getOne?.boardsize)
-      //setWhiteMoves(getOne?.whiteMoves)
-      //setBlackMoves(getOne?.blackMoves)
-      //setStatus(getOne?.status)
+ 
     }catch (error){
       console.log((error as Error).message)
       logout()

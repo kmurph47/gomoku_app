@@ -29,10 +29,10 @@ gamesHandler.get("/all", async (req: Request, res: Response) => {
 gamesHandler.get("/:userId", validateSchema(getGamesByIdSchema), async (req: Request, res: Response) => {
 
     const userId = req.userId;
-    console.log("\nget");
+    
     try{
         const userGames = await getGamesByUserId(userId);
-        console.log(userGames);
+        
         return res.status(200).send(userGames);
     }catch (err) {
         return res.status(500).send(err);
@@ -66,7 +66,6 @@ gamesHandler.post("/:userId", validateSchema(createGamesSchema), async (req: Req
   gamesHandler.delete("/:userId/:gameId", validateSchema(deleteGamesSchema), async (req: Request, res: Response) => {
      const gameId = req.params.gameId 
      const userId = new mongoose.Types.ObjectId(req.userId)
-     console.log(gameId);
      //const userId = req.params.userId
      //const userId = req.userId;
      const deleteGameUpdate = await deleteGameByGameAndUserId({gameId: gameId, userId: userId})
@@ -81,7 +80,6 @@ gamesHandler.post("/:userId", validateSchema(createGamesSchema), async (req: Req
      let whiteState = gameUpdate.whiteMoves
      let blackState = gameUpdate.blackMoves
 
-     console.log("White state on submit: "+whiteState)
 
      await updateGames(gameId, userId, { ...gameUpdate})
      return res.status(200).json({"message":`${currentPlayer}`})
