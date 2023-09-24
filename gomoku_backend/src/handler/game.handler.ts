@@ -27,8 +27,7 @@ gamesHandler.get("/all", async (req: Request, res: Response) => {
   })
 
 gamesHandler.get("/:userId", validateSchema(getGamesByIdSchema), async (req: Request, res: Response) => {
-    //const userId = req.params.userId
-    //const userId = "900b912ac358afc73d9c93de";
+
     const userId = req.userId;
     console.log("\nget");
     try{
@@ -40,32 +39,7 @@ gamesHandler.get("/:userId", validateSchema(getGamesByIdSchema), async (req: Req
     }
 });
 
-/*gamesHandler.get("/:userId", validateSchema(getGamesByIdSchema), async (req: Request, res: Response) => {
-    const userId = req.params.userId
-    //const userId = "900b912ac358afc73d9c93de";
-    console.log("\nget");
-    try{
-        const userGames = await getGamesByUserId(userId);
-        console.log(userGames);
-        return res.status(200).send(userGames);
-    }catch (err) {
-        return res.status(500).send(err);
-    }
-});
 
-*/
-
-/*gamesHandler.get("/spec", validateSchema(getGamesByIdSchema), async (req: Request, res: Response) => {
-    const userId = "900b912ac358afc73d9c93de";
-    //console.log("\nget");
-    //const userId = req.userId
-    try{
-        const userGames = await getGamesByUserId(userId);
-        return res.status(200).send(userGames);
-    }catch (err) {
-        return res.status(500).send(err);
-    }
-});*/
 
 gamesHandler.get("/:userId/:gameId", validateSchema(getGamesByIdSchema), async (req: Request, res: Response) => {
     const g_Id = req.params.gameId
