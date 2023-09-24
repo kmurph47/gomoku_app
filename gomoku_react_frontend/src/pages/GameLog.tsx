@@ -1,9 +1,9 @@
 import { useContext, useCallback, useState, useEffect } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context'
-import { useLocalStorage } from '../hooks'
+
 import style from './GameLog.module.css'
-import { key } from 'localforage'
+
 
 import { Game } from '../types/Game'
 import { get } from '../utils/http'
@@ -15,7 +15,7 @@ export default function GameLog() {
     const [ filteredGames, setFilteredGames ] = useState<Game[]>([])
 
 
-    //const [games] = useLocalStorage<Record<string, string>>('result', {})
+  
     const navigate = useNavigate()
 
 

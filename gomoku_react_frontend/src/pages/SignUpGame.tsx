@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input, Message } from '../components'
 import { UserContext } from '../context'
-import style from './LoginPage.module.css'
+import style from './SignUpGame.module.css'
 
 export default function SignUp() {
   const { register } = useContext(UserContext)

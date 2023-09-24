@@ -22,7 +22,6 @@ export default function Home() {
     const [ filteredGames, setFilteredGames ] = useState<Game[]>([])
 
 
-    //const [games] = useLocalStorage<Record<string, string>>('result', {})
     const navigate = useNavigate()
 
 

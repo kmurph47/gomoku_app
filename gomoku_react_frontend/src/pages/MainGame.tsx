@@ -3,7 +3,7 @@ import { Navigate, useNavigate, useLocation, useParams } from 'react-router-dom'
 import { UserContext } from '../context'
 import { Tile, Button } from '../components'
 import { TILE_STATUS, PLAYERACTIONTYPE } from '../constants'
-import { useLocalStorage } from '../hooks'
+
 
 import { get, post, put, del } from '../utils/http'
 import { Game } from '../types/Game'
@@ -88,52 +88,7 @@ export default function MainGame() {
     fetchGames()
   }, [fetchGames, user])
 
-  //console.log(paramID)
 
-
-  /*const fetchGame =  useCallback(async () => {
-    try{
-      const userGames = await get<Game[]>(`/api/games/${user?._id}/${paramID}`)
-      setFilteredGames(userGames)
-    }catch (error){
-      console.log((error as Error).message)
-      //logout()
-      //navigate('/')
-    }
-  }, [logout, navigate, user?._id])
-
-
-  fetchGame()
-
-  let bs = 0
-
-
-
-
-
-
-
-
-
-
-
-
-    //const { boardSize } = useParams()
-
-
-   /* if (boardSize !== undefined) {
-
-        bs = parseInt(boardSize)
-
-
-    } else {
-
-        bs = 5
-
-
-    }*/
-
-      //console.log(boardS)
 
     let bs = parseInt(boardS)
 
@@ -144,10 +99,7 @@ export default function MainGame() {
     
     let [bSelectedTiles, bDispatch] = useReducer(bActionReducer, [])
     const [wSelectedTiles, wDispatch] = useReducer(wActionReducer, [])
-    const [selectedGamesBlackMoves, saveBlackMoves] = useLocalStorage<Record<string, number[]>>('blackMoves', {})
-    const [selectedGamesWhiteMoves, saveWhiteMoves] = useLocalStorage<Record<string, number[]>>('whiteMoves', {})
-    const [selectedGamesBoardSize, saveBoardSize] = useLocalStorage<Record<string, number>>('boardSize', {})
-    const [selectedGamesWinner, saveBoardWinner] = useLocalStorage<Record<string, string>>('result', {})
+
 
 
     const moveNumber = bSelectedTiles.length + wSelectedTiles.length
@@ -231,24 +183,11 @@ export default function MainGame() {
 
         if(gameOver){
 
-         
-
-
-         
-
 
           putGameToDB()
-          console.log("Game Put")
-
-        //saveBlackMoves({... selectedGamesBlackMoves, ['Game:'+gameID]:bSelectedTiles})
-        //saveWhiteMoves({... selectedGamesWhiteMoves, ['Game:'+gameID]:wSelectedTiles})
-        //saveBoardSize({... selectedGamesBoardSize, ['Game:'+gameID]:bs})
-        //saveBoardWinner({... selectedGamesWinner, ['Game:'+gameID]:result})
-
-        //await new Promise(f => setTimeout(f, 3000));
+          
 
 
-        
         
 
         navigate(`/gamelog`)

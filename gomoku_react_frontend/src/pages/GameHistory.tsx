@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useLocalStorage } from '../hooks'
+
 import { HistoryTile, Button } from '../components'
 import { Navigate, useNavigate, useLocation } from 'react-router-dom'
 import { TILE_STATUS, PLAYERACTIONTYPE } from '../constants'
@@ -25,13 +25,11 @@ type SelectAction = {
 export default function GameHistory() {
 
 
-  let [bs] = [8,6]
 
   const navigate = useNavigate()
 
   
   const { user, logout } = useContext(UserContext)
-  const [ filteredGames, setFilteredGames ] = useState<Game[]>()
   const [ boardS, setBoardSize ] = useState<any>(0)
   const [ whiteMoves, setWhiteMoves ] = useState<any[]>([])
   const [ blackMoves, setBlackMoves ] = useState<any[]>([])
@@ -68,25 +66,13 @@ export default function GameHistory() {
       fetchGames()
     }, [fetchGames, user])
     
-    //const [blackMoveGames] = useLocalStorage<Record<string, number[]>>('blackMoves', {})
-    //const [whiteMoveGames] = useLocalStorage<Record<string, number[]>>('whiteMoves', {})
-   // const [games] = useLocalStorage<Record<string, string>>('result', {})
-    //const [bs] = useLocalStorage<Record<string, number>>('boardSize', {})
-
-    const blackMoveGames = whiteMoves
-    const whiteMoveGames = blackMoves
+  
+    const blackMoveGames = blackMoves
+    const whiteMoveGames = whiteMoves
     const games = status
 
-    
 
 
-
-
-    
-    
-
-    const [bSelectedTiles, bDispatch] = useReducer(bActionReducer, [])
-    const [wSelectedTiles, wDispatch] = useReducer(wActionReducer, [])
 
 
     //if(!gameID) return null
@@ -103,26 +89,6 @@ export default function GameHistory() {
 
     //console.log(gameID)
 
-
-    function bActionReducer(state: number[], action: SelectAction) {
-        const { type, payload } = action
-        switch (type) {
-          case PLAYERACTIONTYPE.SELECT_BLACK:
-            return [...state, payload]
-          default:
-            return state
-        }
-      }
-    
-      function wActionReducer(state: number[], action: SelectAction) {
-        const { type, payload } = action
-        switch (type) {
-          case PLAYERACTIONTYPE.SELECT_WHITE:
-            return [...state, payload]
-          default:
-            return state
-        }
-      }
     
 
 
