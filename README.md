@@ -6,7 +6,7 @@
 3 - yarn dev start
 
 
-#Run gomoku_rect_frontend
+#Run gomoku_react_frontend
 1 - cd into gomoku_react_frontend
 2 - npm start
 3 - Go to 

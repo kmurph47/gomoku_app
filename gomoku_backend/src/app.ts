@@ -20,9 +20,10 @@ app.use('/api/games', gameHandler)
 app.use('/api/auth', authHandler)
 
 // only listen to request when DB connection is established
-mongoose.connection.once('connected', () => {
+/*mongoose.connection.once('connected', () => {
   console.log('⚡️[server]: Connected to MongoDB.');
   app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
   });
-})
+})*/
+export default app;

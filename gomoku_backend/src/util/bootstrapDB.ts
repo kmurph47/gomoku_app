@@ -2,7 +2,7 @@ import 'dotenv/config';
 import connect from './connectDB';
 
 import UserModel from "../model/user.model";
-import users from "../data/user.json";
+//import users from "../data/user.json";
 
 
 const run = async () => {
@@ -10,7 +10,7 @@ const run = async () => {
     await connect();
 
     await UserModel.deleteMany();
-    await UserModel.insertMany(users);
+    //await UserModel.insertMany(users);
 
 
     process.exit(0)
