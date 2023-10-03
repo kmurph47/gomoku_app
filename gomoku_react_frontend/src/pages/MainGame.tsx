@@ -12,6 +12,8 @@ import { Game } from '../types/Game'
 import style from './MainGame.module.css'
 import { type } from 'os'
 
+import { API_HOST } from '../constants'
+
 
 
 type SelectAction = {
@@ -65,7 +67,7 @@ export default function MainGame() {
 
   const fetchGames = useCallback(async () => {
     try{
-      const getOne = await get<Game>(`/api/games/${user?._id}/${paramID}`)
+      const getOne = await get<Game>(`${ API_HOST }/api/games/${user?._id}/${paramID}`)
       //setResult(getOne?.result)
       setBoardSize(getOne?.boardsize)
  
@@ -139,7 +141,7 @@ export default function MainGame() {
 
       const deleteGameFromDB = async () => {
         if (user){ 
-          await del (`/api/games/${user?._id}/${paramID}`)
+          await del (`${ API_HOST }/api/games/${user?._id}/${paramID}`)
         }
       }
 
@@ -150,7 +152,7 @@ export default function MainGame() {
         if (user){ 
 
         
-              const resp = await put (`/api/games/${user?._id}`, {
+              const resp = await put (`${ API_HOST }/api/games/${user?._id}`, {
       
 
               gameId: Number(paramID),

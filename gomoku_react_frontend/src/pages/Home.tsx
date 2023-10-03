@@ -8,6 +8,8 @@ import style from './Home.module.css'
 import { Game } from '../types/Game'
 import { get, post } from '../utils/http'
 
+import { API_HOST } from '../constants'
+
 export default function Home() {
 
   
@@ -29,7 +31,7 @@ export default function Home() {
       let winner:string = ""
       winner = "Current Player: White"
       if (user){
-        const res = await post (`/api/games/${user?._id}`, {
+        const res = await post (`${ API_HOST }/api/games/${user?._id}`, {
           //userId: user._id,
           gameId: filteredGames.length+1,
           boardsize: inputBS,
@@ -46,7 +48,7 @@ export default function Home() {
 
     const fetchGames = useCallback(async () => {
     try{
-      const userGames = await get<Game[]>(`/api/games/${user?._id}`)
+      const userGames = await get<Game[]>(`${ API_HOST }/api/games/${user?._id}`)
       setFilteredGames(userGames)
     }catch (error){
       console.log((error as Error).message)

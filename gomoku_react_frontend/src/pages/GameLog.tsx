@@ -8,6 +8,8 @@ import style from './GameLog.module.css'
 import { Game } from '../types/Game'
 import { get } from '../utils/http'
 
+import { API_HOST } from '../constants'
+
 
 export default function GameLog() {
 
@@ -22,7 +24,7 @@ export default function GameLog() {
 
   const fetchGames = useCallback(async () => {
     try{
-      const userGames = await get<Game[]>(`/api/games/${user?._id}`)
+      const userGames = await get<Game[]>(`${ API_HOST }/api/games/${user?._id}`)
       setFilteredGames(userGames)
     }catch (error){
       console.log((error as Error).message)

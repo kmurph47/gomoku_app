@@ -13,6 +13,7 @@ import { Game } from '../types/Game'
 
 import style from './GameHistory.module.css'
 import { type } from 'os'
+import { API_HOST } from '../constants'
 
 
 type SelectAction = {
@@ -46,7 +47,7 @@ export default function GameHistory() {
 
     const fetchGames = useCallback(async () => {
       try{
-        const getOne = await get<Game>(`/api/games/${user?._id}/${gameID}`)
+        const getOne = await get<Game>(`${ API_HOST }/api/games/${user?._id}/${gameID}`)
         //setResult(getOne?.result)
         setBoardSize(getOne?.boardsize)
         setWhiteMoves(getOne?.whiteMoves)
